@@ -28,7 +28,7 @@ spec:
             values:
               - "docker-desktop"
   hostPath:
-    path: /tmp/var/lib/mysql
+    path: /var/lib/mysql
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

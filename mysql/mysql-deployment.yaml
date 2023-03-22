@@ -26,7 +26,7 @@ spec:
               optional: false
         volumeMounts:
           - name: mysql-data
-            mountPath: /tmp/var/lib/mysql
+            mountPath: /var/lib/mysql
         resources:
           requests:
             cpu: 100m
