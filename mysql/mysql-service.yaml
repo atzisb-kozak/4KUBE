@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql
+  namespace: shop-app
+  labels:
+    app: mysql
+spec:
+  selector:
+    app: mysql
+  type: NodePort
+  ports:
+    - port: 3306
+      targetPort: 3306

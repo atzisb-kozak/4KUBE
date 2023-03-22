@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: prestashop
+  namespace: shop-app
+spec:
+  selector:
+    app: prestashop
+  type:  NodePort
+  ports:
+    - port: 80
+      targetPort: 80

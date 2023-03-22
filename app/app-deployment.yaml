@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prestashop
+  namespace: shop-app
+  labels:
+    app: prestashop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prestashop-pod
+  template:
+    metadata:
+      labels:
+        app: prestashop-pod
+    spec:
+      containers:
+      - name: shop-app
+        image: prestashop/prestashop:1.7
+        ports:
+          - containerPort: 80
+        env:
+          - name: ADMIN_MAIL
+            valueFrom:
+              configMapKeyRef:
+                key: ADMIN_MAIL
+                name: prestashop-config
+          - name: ADMIN_PASSWD
+            valueFrom:
+              configMapKeyRef:
+                key: ADMIN_PASSWD
+                name: prestashop-config
+        resources:
+          requests:
+            cpu: 100m
+            memory: 1024Mi
+          limits:
+            cpu: 1000m
+            memory: 1024Mi
+      restartPolicy: Always

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prestashop-config
+  namespace: shop-app
+  labels:
+    app: prestashop
+data:
+  ADMIN_MAIL: prestashop-app@test.com
+  ADMIN_PASSWD: prestashoppwd
